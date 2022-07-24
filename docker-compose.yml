@@ -2,6 +2,7 @@ version: "3.7"
 
 services:
   app:
+    restart: always
     image: node:12-alpine
     command: sh -c "yarn install && yarn run dev"
     ports:
@@ -16,6 +17,7 @@ services:
       MYSQL_DB: todos
 
   mysql:
+    restart: always
     image: mysql:5.7
     volumes:
       - todo-mysql-data:/var/lib/mysql
